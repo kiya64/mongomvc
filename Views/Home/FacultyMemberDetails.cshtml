@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "صفحه شخصی استاد";
+    string facultyId = ViewData["Id"].ToString();
+}
+
+<div class="container mt-5">
+    <h1>صفحه شخصی استاد</h1>
+
+    @if (facultyId == "faculty1")
+    {
+        <div class="card mb-3">
+            <img src="~/images/faculty1.jpg" class="card-img-top" alt="استاد 1">
+            <div class="card-body">
+                <h5 class="card-title">دکتر علی زاده</h5>
+                <p class="card-text"><strong>گروه آموزشی:</strong> مهندسی نرم‌افزار</p>
+                <p class="card-text"><strong>مرتبه علمی:</strong> استاد</p>
+                <p class="card-text"><strong>زمینه تخصصی:</strong> هوش مصنوعی</p>
+                <p class="card-text"><strong>شماره دفتر کار:</strong> 123456789</p>
+            </div>
+        </div>
+    }
+    else if (facultyId == "faculty2")
+    {
+        <div class="card mb-3">
+            <img src="~/images/faculty2.jpg" class="card-img-top" alt="استاد 2">
+            <div class="card-body">
+                <h5 class="card-title">دکتر محمدی</h5>
+                <p class="card-text"><strong>گروه آموزشی:</strong> مهندسی سخت‌افزار</p>
+                <p class="card-text"><strong>مرتبه علمی:</strong> دانشیار</p>
+                <p class="card-text"><strong>زمینه تخصصی:</strong> شبکه‌های کامپیوتری</p>
+                <p class="card-text"><strong>شماره دفتر کار:</strong> 987654321</p>
+            </div>
+        </div>
+    }
+    else if (facultyId == "faculty3")
+    {
+        <div class="card mb-3">
+            <img src="~/images/faculty3.jpg" class="card-img-top" alt="استاد 3">
+            <div class="card-body">
+                <h5 class="card-title">دکتر حسینی</h5>
+                <p class="card-text"><strong>گروه آموزشی:</strong> فناوری اطلاعات</p>
+                <p class="card-text"><strong>مرتبه علمی:</strong> استادیار</p>
+                <p class="card-text"><strong>زمینه تخصصی:</strong> امنیت اطلاعات</p>
+                <p class="card-text"><strong>شماره دفتر کار:</strong> 555666777</p>
+            </div>
+        </div>
+    }
+</div>

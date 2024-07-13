@@ -1,0 +1,28 @@
+﻿@model AboutFaculty
+@{
+    ViewData["Title"] = "درباره دانشکده";
+}
+
+<div class="container mt-5">
+    <h1>@ViewData["Title"]</h1>
+    <div class="card mt-3">
+        <div class="card-header">
+            اطلاعات دانشکده
+        </div>
+        <div class="card-body">
+            <p><strong>سال تأسیس:</strong> ۱۳۷۰</p>
+            <p><strong>اهداف تأسیس:</strong> ارتقاء سطح علمی و پژوهشی کشور</p>
+            <p><strong>نام گروههای آموزشی:</strong></p>
+            <ul>
+           
+                <li>گروه مهندسی نرم‌افزار</li>
+                <li>گروه مهندسی سخت‌افزار</li>
+                <li>گروه علوم کامپیوتر</li>
+                <li>گروه فناوری اطلاعات</li>
+            </ul>
+            <p><strong>تعداد اساتید:</strong> @Model.countTeacher</p>
+            <p><strong>تعداد دانشجویان:</strong> @Model.countStudent</p>
+            <p><strong>تعداد کلاس‌ها:</strong> ۲۰</p>
+        </div>
+    </div>
+</div>

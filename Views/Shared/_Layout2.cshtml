@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebProject</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebProject.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/custom.css" /> <!-- این خط اضافه شده است -->
+
+    <style>
+        /* استایل برای مرکز چین کردن محتوا */
+        .container {
+            display: flex;
+            justify-content: center; /* وسط‌چین کردن افقی */
+            align-items: center; /* وسط‌چین کردن عمودی */
+            height: 100vh; /* ارتفاع 100% از ارتفاع صفحه */
+        }
+
+        .content {
+            max-width: 800px; /* حداکثر عرض محتوا */
+            width: 100%; /* عرض 100% از عرض محتوا */
+            text-align: center; /* وسط چین کردن محتوا */
+        }
+
+    
+    </style>
+</head>
+<body class="bg-warning">
+    <div class="container">
+        <main role="main" class="content">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

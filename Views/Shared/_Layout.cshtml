@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebProject</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebProject.styles.css" asp-append-version="true" />
+    <style>
+        body {
+            direction: rtl;
+            text-align: right;
+        
+        
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            
+            padding-top: 60px; /* Adjusted to match the height of the navbar */
+        }
+
+        .content {
+            margin-right: 250px;
+            padding: 20px;
+            margin-top: 60px; /* Adjusted to match the height of the navbar */
+        }
+
+        .navbar-logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            max-width: 200px; /* Adjust the max width as needed */
+        }
+
+        .saaaa:hover{
+            background-color :red;
+        }
+
+            .navbar-logo img {
+                max-height: 40px;
+                height: auto;
+                width: auto;
+                max-width: 100%; /* Ensure the image is responsive */
+                margin-left: 10px; /* فاصله بین تصویر و متن */
+            }
+    </style>
+</head>
+<body>
+    <header >
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3 fixed-top bg-warning">
+            <div class="container-fluid d-flex justify-content-between">
+                <div class="navbar-brand">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">WebProject</a>
+                </div>
+                <div class="navbar-logo mx-auto">
+                    <img src="~/images/university-logo.jpg" alt="University Logo" class="img-fluid">
+                    <span>دانشگاه علامه</span>
+                </div>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link saaaa text-dark" asp-area="" asp-controller="Home" asp-action="Index">خانه</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link saaaa text-dark" asp-area="" asp-controller="Home" asp-action="AboutFaculty">درباره دانشکده</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link saaaa text-dark" asp-area="" asp-controller="Home" asp-action="EducationalGroups">گروه‌های آموزشی</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link saaaa text-dark" asp-area="" asp-controller="Home" asp-action="FacultyMembers">اعضای هیئت علمی</a>
+                        </li>
+                       
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar bg-warning">
+        <ul class="nav flex-column">
+            <li class="nav-item ">
+                <a class="nav-link saaaa text-dark" asp-area="" asp-controller="Home" asp-action="DegreePrograms">مقاطع تحصیلی</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link saaaa text-dark" asp-area="" asp-controller="Home" asp-action="Contact">تماس با دانشکده</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link saaaa text-dark" asp-area="" asp-controller="Home" asp-action="PhotoAlbum">آلبوم تصاویر</a>
+            </li>
+            @{
+                if (User?.Identity?.IsAuthenticated ?? false)
+                {
+                    if (User.IsInRole("Admin"))
+                    {
+                        <a class="nav-link saaaa text-dark" asp-area="" asp-controller="Course" asp-action="Create">افزودن درس</a>
+
+                    }
+                    else
+                    {
+                        <a class="nav-link saaaa text-dark" asp-area="" asp-controller="StudentCartable" asp-action="Index">دروسم</a>
+                        <a class="nav-link saaaa text-dark" asp-area="" asp-controller="StudentCartable" asp-action="EntekhabVahed">انتخاب واحد</a>
+
+
+                    }
+                    <li class="nav-item">
+                        <a class="nav-link saaaa text-dark btn-danger saaaa " asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                    </li>
+
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link saaaa text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link saaaa text-dark" asp-area="" asp-controller="User" asp-action="Creat">Signin</a>
+                    </li>
+                }
+
+  
+    }
+                            
+        </ul>
+    </div>
+
+    <div class="container">
+        <main role="main" class="content">
+            @RenderBody()
+        </main>
+    </div>
+
+<footer class="border-top footer text-muted mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p>آدرس: خیابان اصلی، شهر، کشور</p>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-unstyled">
+                    <li><a href="#">سایت دانشگاه</a></li>
+                    <li><a href="#">سایت سازمان سنجش</a></li>
+                    <li><a href="#">سایر لینک‌ها</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

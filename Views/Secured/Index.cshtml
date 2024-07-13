@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNetCore.Authorization;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+
+<h2> خوش آمدی  کیومرث </h2>
+
+<dl>
+    @{
+        if (User.IsInRole("Admin"))
+        {
+            <a class="btn btn-green saaaa nav-link text-dark" asp-area="" asp-controller="Course" asp-action="Create">افزودن درس</a>
+
+        }
+        else{
+            <a class="btn btn-green saaaa nav-link text-dark" asp-area="" asp-controller="StudentCartable" asp-action="Index">دروسم</a>
+            <br />
+            <a class="btn btn-green saaaa nav-link text-dark" asp-area="" asp-controller="StudentCartable" asp-action="EntekhabVahed">انتخاب واحد</a>
+
+
+        }
+    }
+
+</dl>

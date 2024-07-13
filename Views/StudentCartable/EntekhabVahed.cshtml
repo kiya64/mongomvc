@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Course>
+
+<h2>انتخاب واحد</h2>
+
+
+@if (ViewBag.AlertMessage != null)
+{
+<script>alert('@Html.Raw(ViewBag.AlertMessage)');</script>
+
+}
+
+<table class="table  table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Group</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Day</td>
+                <td>@item.StartTime</td>
+                <td>@item.EndTime</td>
+                <td>@item.RegistrationNsumber</td>
+                <td>@item.Capacity</td>
+                <td>
+                   @* <a asp-controller="StudentCartable" asp-action="EntekhabVahed" asp-route-id="@item.Id">انتخاب واحد</a>*@
+                    <form asp-controller="StudentCartable" asp-action="EntekhabVahed" method="post">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <button type="submit">انتخاب واحد</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
